@@ -35,7 +35,7 @@ class GameOfLife(QWidget):
         self.cell_size = 10
         self.grid_width = 80
         self.grid_height = 80
-        self.old_grid = np.zeros((self.grid_width, self.grid_height))
+        self.old_grid = -np.ones((self.grid_width, self.grid_height))
         self.grid = np.random.choice([0, 1], size=(self.grid_width, self.grid_height), p=[0.9, 0.1])
 
         self.timer = QTimer(self)
