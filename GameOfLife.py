@@ -19,7 +19,6 @@ class MainWindow(QMainWindow):
         exit_action.triggered.connect(self.close)
 
         self.game = GameOfLife()
-        menubar.addAction(self.game.clear_action)
         menubar.addAction(self.game.start_action)
         menubar.addAction(self.game.stop_action)            
 
@@ -40,9 +39,6 @@ class GameOfLife(QWidget):
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_grid)
-
-        self.clear_action = QAction('Clear', self)
-        self.clear_action.triggered.connect(self.clear_game)
 
         self.start_action = QAction('Start', self)
         self.start_action.triggered.connect(self.start_game)
@@ -68,10 +64,6 @@ class GameOfLife(QWidget):
     def set_game(self, arr):
         self.old_grid = -np.ones((self.grid_width, self.grid_height))
         self.grid = np.copy(arr)
-
-    def clear_game(self):
-        self.old_grid = -np.ones((self.grid_width, self.grid_height))
-        self.grid = np.zeros((self.grid_width, self.grid_height))
 
     def start_game(self):
         self.timer.start(100)  # Update every 100 milliseconds
