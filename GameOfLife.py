@@ -72,7 +72,7 @@ class GameOfLife(QWidget):
     def clear_game(self):
         self.stop_game()
         self.grid = np.zeros((self.grid_width, self.grid_height))
-        self.update_ui()
+        self.update_grid()
 
     def start_game(self):
         self.timer.start(100)  # Update every 100 milliseconds
