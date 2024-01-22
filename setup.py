@@ -6,4 +6,9 @@ version='1.0',
 author='Flozoui',
 license='MIT',
 long_description=open('README.md').read(),
+install_requires=[
+        'PyQt5',
+        'numpy',
+        'scipy'
+    ],
 )
